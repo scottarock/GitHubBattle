@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Kodchasan');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Kodchasan, Helvetica, sans-serif;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  width: 92%;
+  margin: 25px auto 10px;
+  padding: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 2px;
+}
+
+header {
+  padding: 2%;
+}
+
+app-contestant {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 46%;
+  margin: 2%;
+  padding: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 2px;
+}
+
+h1 {
+  display: inline-block;
+}
+
+nav {
+  float: right;
+}
+
+nav a {
+  font-size: 1.3em;
+}
+
+.bold {
+  font-weight: bold;
+}
