@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Contestant } from '../../models';
+import { BattleService } from '../../services/battle.service';
 
 @Component({
   selector: 'app-results',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  firstPlace: Contestant;
+  secondPlace: Contestant;
+
+  constructor(
+    private battleService: BattleService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.firstPlace = this.battleService.retrieveFirstPlace();
+    this.secondPlace = this.battleService.retrieveSecondPlace();
+  }
+
+  reset() {
+    this.router.navigateByUrl('/');
   }
 
 }

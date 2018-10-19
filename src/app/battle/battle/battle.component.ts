@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Contestant } from '../../models';
 import { BattleService } from '../../services';
@@ -14,11 +15,12 @@ export class BattleComponent implements OnInit {
   contestant2: Contestant = new Contestant('2');
   readyToBattle: boolean = false;
 
-  constructor(private battleService: BattleService) {
-  }
+  constructor(
+    private battleService: BattleService,
+    private router: Router
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   getUser(contestant: Contestant) {
     this.battleService.getUser(contestant.userName)
@@ -37,6 +39,11 @@ export class BattleComponent implements OnInit {
           }
         }
       );
+  }
+
+  showResults() {
+    this.battleService.determinePlaces(this.contestant1, this.contestant2);
+    this.router.navigateByUrl('/results');
   }
 
   private setReadyToBattle() {

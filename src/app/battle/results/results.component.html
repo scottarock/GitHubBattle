@@ -1,3 +1,15 @@
-<p>
-  results works!
-</p>
+<div class="results">
+  <div class="winner">
+    <h1>1st Place</h1>
+    <p class="highlight">{{ firstPlace.userName }} (Score: {{ firstPlace.score }})</p>
+  </div>
+  <div class="loser">
+    <h1>2nd Place</h1>
+    <p class="highlight">{{ secondPlace.userName }} (Score: {{ secondPlace.score }})</p>
+  </div>
+</div>
+<div class="podium">
+  <img [src]="firstPlace.avatar_url">
+  <p class="center">{{ firstPlace.userName }}</p>
+</div>
+<button class="btn-reset" (click)="reset()">Reset</button>

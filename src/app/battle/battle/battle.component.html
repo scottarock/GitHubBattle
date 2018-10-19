@@ -7,5 +7,11 @@
     (userSubmitted)="getUser($event)"
     [contestant]="contestant2">
   </app-contestant>
-  <button *ngIf="readyToBattle" class="btn-battle">BATTLE!</button>
+  <button
+    *ngIf="readyToBattle"
+    class="btn-battle"
+    (click)="showResults()"
+  >
+    BATTLE!
+  </button>
 </div>

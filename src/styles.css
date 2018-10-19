@@ -19,7 +19,7 @@ header {
   padding: 2%;
 }
 
-app-contestant {
+app-contestant, .podium {
   display: inline-block;
   box-sizing: border-box;
   width: 46%;
@@ -30,7 +30,7 @@ app-contestant {
   border-radius: 2px;
 }
 
-app-contestant img {
+app-contestant img, .podium img {
   width: 100%;
 }
 
@@ -90,14 +90,43 @@ input {
   box-sizing: border-box;
   width: 96%;
   margin: 10px 2%;
+  padding: 4px 0px;
   font-size: 1.2em;
   font-weight: 900;
-  padding: 4px 0px;
   background-color: orange;
   border: 1px solid gray;
   border-radius: 2px;
 }
 
+.btn-reset {
+  display: block;
+  box-sizing: border-box;
+  margin: 10px auto;
+  padding: 4px 8px;
+  font-size: 1.2em;
+  font-weight: 900;
+  color: white;
+  background-color: black;
+  border: 1px solid gray;
+  border-radius: 2px;
+
+}
+
 .center {
   text-align: center;
+}
+
+.results {
+  display: inline-block;
+  width: 50%;
+}
+
+.winner {
+  margin: 15px 0px;
+  color: green;
+}
+
+.loser {
+  margin: 15px 0px;
+  color: red;
 }
