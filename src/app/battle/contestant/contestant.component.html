@@ -1,3 +1,29 @@
-<p>
-  contestant works!
-</p>
+<div *ngIf="!contestant.avatar_url">
+  <h2>Player {{ contestant.number }}</h2>
+  <form (submit)="onSubmit()" #form="ngForm">
+    <div class="center">
+      <label for="userName">GitHub Username:</label>
+      <input
+        type="text"
+        id="userName"
+        name="userName"
+        [(ngModel)]="contestant.userName"
+        required
+        #userName="ngModel"
+      >
+    </div>
+    <div *ngIf="userName.touched && userName.invalid" class="warning center">
+      <div *ngIf="userName.errors.required">
+        User name is required
+      </div>
+    </div>
+    <div *ngIf="contestant.errors" class="warning center">
+      <p *ngFor="let error of contestant.errors">{{ error }}</p>
+    </div>
+    <button class="btn-submit" [disabled]="form.invalid">Get User</button>
+  </form>
+</div>
+<div *ngIf="contestant.avatar_url">
+  <img [src]="contestant.avatar_url">
+  <p class="center">{{ contestant.userName }}</p>
+</div>

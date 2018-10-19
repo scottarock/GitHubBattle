@@ -1,9 +1,17 @@
 <div class="wrapper">
   <header>
-    <h1>Github Battle</h1>
+    <h1>GitHub Battle</h1>
     <nav>
-      <a routerLink="/">Battle</a> |
-      <a routerLink="/rankings">Rankings</a>
+      <a
+        routerLink="/"
+        routerLinkActive="highlight"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >Battle</a> |
+      <a
+        routerLink="/rankings"
+        routerLinkActive="highlight"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >Rankings</a>
     </nav>
   </header>
   <router-outlet></router-outlet>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { Contestant } from '../../models';
 
 @Component({
   selector: 'app-contestant',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContestantComponent implements OnInit {
 
+  @Input() contestant: Contestant;
+  @Output() userSubmitted: EventEmitter<Contestant> = new EventEmitter;
+  userName: string = '';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    console.log(`submitted --> ${this.contestant.userName}`);
+    this.userSubmitted.emit(this.contestant);
   }
 
 }

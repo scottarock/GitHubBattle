@@ -1,4 +1,11 @@
 <div>
-  <app-contestant></app-contestant>
-  <app-contestant></app-contestant>
+  <app-contestant
+    (userSubmitted)="getUser($event)"
+    [contestant]="contestant1">
+  </app-contestant>
+  <app-contestant
+    (userSubmitted)="getUser($event)"
+    [contestant]="contestant2">
+  </app-contestant>
+  <button *ngIf="readyToBattle" class="btn-battle">BATTLE!</button>
 </div>

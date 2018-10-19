@@ -32,8 +32,4 @@ export class GitHubUser {
   created_at: string;
   updated_at: string;
 
-  score(): number {
-    return (this.public_repos + this.followers) * 12;
-  }
-
 }
