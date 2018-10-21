@@ -3,4 +3,5 @@ const { gitHubUserController } = require('../controllers');
 
 module.exports = router
   .get('/', gitHubUserController.index)
-  .post('/', gitHubUserController.create);
+  .post('/', gitHubUserController.create)
+  .get('/:userName', gitHubUserController.show);

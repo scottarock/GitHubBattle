@@ -23,6 +23,7 @@ export class BattleComponent implements OnInit {
   ngOnInit() { }
 
   getUser(contestant: Contestant) {
+    // retrieve GitHub user data from GitHub
     this.battleService.getUser(contestant.userName)
       .subscribe(
         ghUser => { // succesful return
@@ -32,17 +33,37 @@ export class BattleComponent implements OnInit {
           this.setReadyToBattle();
         },
         error => { // error occurred retrieving user from GitHub
-          console.log('ERROR CAUGHT', error);
           if ( error.status === 404 ) {
             console.log('404 Not Found error')
             contestant.error = 'GitHub username does not exist, please try again';
           }
         }
-      );
+    );
   }
 
   showResults() {
+    // send the contestants to the service to set placings
     this.battleService.determinePlaces(this.contestant1, this.contestant2);
+    // save the contestants to the rankings database
+    this.battleService.getContestant(this.contestant1.userName)
+      .subscribe(
+        ghUser => {
+          if (!ghUser) {
+            this.battleService.createContestant(this.contestant1)
+            .subscribe( _contestant => {});
+          }
+        },
+    );
+    this.battleService.getContestant(this.contestant2.userName)
+      .subscribe(
+        ghUser => {
+          if (!ghUser) {
+            this.battleService.createContestant(this.contestant2)
+              .subscribe( _contestant => {});
+          }
+        },
+    );
+    // show the results of this battle
     this.router.navigateByUrl('/results');
   }
 

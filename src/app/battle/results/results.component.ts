@@ -20,6 +20,7 @@ export class ResultsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // get the contestants
     this.firstPlace = this.battleService.retrieveFirstPlace();
     this.secondPlace = this.battleService.retrieveSecondPlace();
   }

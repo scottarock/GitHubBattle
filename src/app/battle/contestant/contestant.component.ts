@@ -9,6 +9,7 @@ import { Contestant } from '../../models';
 })
 export class ContestantComponent implements OnInit {
 
+  // battle component does all the work
   @Input() contestant: Contestant;
   @Output() userSubmitted: EventEmitter<Contestant> = new EventEmitter;
   userName: string = '';
@@ -19,7 +20,6 @@ export class ContestantComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(`submitted --> ${this.contestant.userName}`);
     this.userSubmitted.emit(this.contestant);
   }
 

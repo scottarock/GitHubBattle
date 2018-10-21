@@ -1,5 +1,5 @@
-<div *ngIf="!contestant.avatar_url">
-  <h2>Player {{ contestant.number }}</h2>
+<div *ngIf="!contestant.ready">
+  <h2 class="center">Player {{ contestant.number }}</h2>
   <form (submit)="onSubmit()" #form="ngForm">
     <div class="center">
       <label for="userName">GitHub Username:</label>
@@ -17,13 +17,13 @@
         User name is required
       </div>
     </div>
-    <div *ngIf="contestant.errors" class="warning center">
-      <p *ngFor="let error of contestant.errors">{{ error }}</p>
+    <div *ngIf="contestant.error" class="warning center">
+      <p>{{ contestant.error }}</p>
     </div>
     <button class="btn-submit" [disabled]="form.invalid">Get User</button>
   </form>
 </div>
-<div *ngIf="contestant.avatar_url">
+<div *ngIf="contestant.ready">
   <img [src]="contestant.avatar_url">
   <p class="center">{{ contestant.userName }}</p>
 </div>

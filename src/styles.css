@@ -40,7 +40,6 @@ h1 {
 
 h2 {
   margin-bottom: 10px;
-  text-align: center;
 }
 
 nav {
@@ -129,4 +128,21 @@ input {
 .loser {
   margin: 15px 0px;
   color: red;
+}
+
+.rankings {
+  height: 700px;
+  overflow-y: scroll;
+}
+
+.ranking {
+  box-sizing: border-box;
+  padding: 10px;
+  vertical-align: top;
+  border: 1px solid gainsboro;
+  border-radius: 2px;
+}
+
+.ranking h2 {
+  display: inline-block;
 }

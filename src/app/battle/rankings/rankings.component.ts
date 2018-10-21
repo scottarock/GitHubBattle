@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Contestant } from '../../models';
+import { BattleService } from '../../services';
+
 @Component({
   selector: 'app-rankings',
   templateUrl: './rankings.component.html',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingsComponent implements OnInit {
 
-  constructor() { }
+  contestants: Contestant[] = [];
+
+  constructor(private battleService: BattleService) { }
 
   ngOnInit() {
+    this.battleService.getContestants()
+      .subscribe( contestants => {
+        this.contestants = contestants;
+    });
   }
 
 }
